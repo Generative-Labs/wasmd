@@ -6,7 +6,7 @@ import (
 
 	wasmvmtypes "github.com/CosmWasm/wasmvm/v2/types"
 	ibctransfertypes "github.com/cosmos/ibc-go/v8/modules/apps/transfer/types"
-	ibcclienttypes "github.com/cosmos/ibc-go/v8/modules/core/02-client/types"
+	ibcclienttypes "github.com/cosmos/ibc-go/v8/modules/core/02-client/types" //nolint:staticcheck
 	channeltypes "github.com/cosmos/ibc-go/v8/modules/core/04-channel/types"
 
 	errorsmod "cosmossdk.io/errors"
@@ -20,7 +20,7 @@ import (
 	v1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 type (

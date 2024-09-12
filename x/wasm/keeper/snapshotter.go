@@ -14,8 +14,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/ioutils"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/ioutils"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 var _ snapshot.ExtensionSnapshotter = &WasmSnapshotter{}
@@ -25,10 +25,10 @@ const SnapshotFormat = 1
 
 type WasmSnapshotter struct {
 	wasm *Keeper
-	cms  storetypes.MultiStore
+	cms  storetypes.RootMultiStore
 }
 
-func NewWasmSnapshotter(cms storetypes.MultiStore, wasm *Keeper) *WasmSnapshotter {
+func NewWasmSnapshotter(cms storetypes.RootMultiStore, wasm *Keeper) *WasmSnapshotter {
 	return &WasmSnapshotter{
 		wasm: wasm,
 		cms:  cms,

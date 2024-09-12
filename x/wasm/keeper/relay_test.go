@@ -15,8 +15,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestOnOpenChannel(t *testing.T) {
@@ -344,14 +344,6 @@ func TestOnRecvPacket(t *testing.T) {
 			contractAddr:   example.Contract,
 			expContractGas: myContractGas,
 			contractResp: &wasmvmtypes.IBCReceiveResult{
-				Ok: &wasmvmtypes.IBCReceiveResponse{Acknowledgement: []byte{}},
-			},
-			expAck: []byte{},
-		},
-		"can return nil ack": {
-			contractAddr:   example.Contract,
-			expContractGas: myContractGas + 2720, // 2720 is the cost of storing the packet
-			contractResp: &wasmvmtypes.IBCReceiveResult{
 				Ok: &wasmvmtypes.IBCReceiveResponse{},
 			},
 		},
@@ -488,11 +480,7 @@ func TestOnRecvPacket(t *testing.T) {
 				return
 			}
 			require.NoError(t, err)
-			if spec.expAck != nil {
-				require.Equal(t, spec.expAck, gotAck.Acknowledgement())
-			} else {
-				require.Nil(t, gotAck)
-			}
+			require.Equal(t, spec.expAck, gotAck.Acknowledgement())
 
 			// verify gas consumed
 			const storageCosts = storetypes.Gas(2903)

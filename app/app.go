@@ -12,7 +12,6 @@ import (
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
 	dbm "github.com/cosmos/cosmos-db"
 	"github.com/cosmos/gogoproto/proto"
-	ibccallbacks "github.com/cosmos/ibc-go/modules/apps/callbacks"
 	"github.com/cosmos/ibc-go/modules/capability"
 	capabilitykeeper "github.com/cosmos/ibc-go/modules/capability/keeper"
 	capabilitytypes "github.com/cosmos/ibc-go/modules/capability/types"
@@ -131,9 +130,9 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm"
-	wasmkeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
-	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm"
+	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 const appName = "WasmApp"
@@ -326,6 +325,8 @@ func NewWasmApp(
 		icacontrollertypes.StoreKey,
 	)
 
+	okeys := storetypes.NewObjectStoreKeys(banktypes.ObjectStoreKey)
+
 	tkeys := storetypes.NewTransientStoreKeys(paramstypes.TStoreKey)
 	memKeys := storetypes.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
 
@@ -389,6 +390,7 @@ func NewWasmApp(
 	app.BankKeeper = bankkeeper.NewBaseKeeper(
 		appCodec,
 		runtime.NewKVStoreService(keys[banktypes.StoreKey]),
+		okeys[banktypes.ObjectStoreKey],
 		app.AccountKeeper,
 		BlockedAddresses(),
 		authtypes.NewModuleAddress(govtypes.ModuleName).String(),
@@ -665,12 +667,12 @@ func NewWasmApp(
 	var noAuthzModule porttypes.IBCModule
 	icaControllerStack = icacontroller.NewIBCMiddleware(noAuthzModule, app.ICAControllerKeeper)
 	// app.ICAAuthModule = icaControllerStack.(ibcmock.IBCModule)
+	// icaICS4Wrapper := icaControllerStack.(porttypes.ICS4Wrapper)
 	icaControllerStack = icacontroller.NewIBCMiddleware(icaControllerStack, app.ICAControllerKeeper)
-	icaControllerStack = ibccallbacks.NewIBCMiddleware(icaControllerStack, app.IBCFeeKeeper, wasmStackIBCHandler, wasm.DefaultMaxIBCCallbackGas)
-	icaICS4Wrapper := icaControllerStack.(porttypes.ICS4Wrapper)
+	// icaControllerStack = ibccallbacks.NewIBCMiddleware(icaControllerStack, icaICS4Wrapper, app.IBCFeeKeeper, wasmStackIBCHandler, wasm.DefaultMaxIBCCallbackGas)
 	icaControllerStack = ibcfee.NewIBCMiddleware(icaControllerStack, app.IBCFeeKeeper)
 	// Since the callbacks middleware itself is an ics4wrapper, it needs to be passed to the ica controller keeper
-	app.ICAControllerKeeper.WithICS4Wrapper(icaICS4Wrapper)
+	// app.ICAControllerKeeper.WithICS4Wrapper(icaICS4Wrapper)
 
 	// RecvPacket, message that originates from core IBC and goes down to app, the flow is:
 	// channel.RecvPacket -> fee.OnRecvPacket -> icaHost.OnRecvPacket
@@ -681,11 +683,11 @@ func NewWasmApp(
 	// Create Transfer Stack
 	var transferStack porttypes.IBCModule
 	transferStack = transfer.NewIBCModule(app.TransferKeeper)
-	transferStack = ibccallbacks.NewIBCMiddleware(transferStack, app.IBCFeeKeeper, wasmStackIBCHandler, wasm.DefaultMaxIBCCallbackGas)
-	transferICS4Wrapper := transferStack.(porttypes.ICS4Wrapper)
+	// transferStack = ibccallbacks.NewIBCMiddleware(transferStack, icaICS4Wrapper, app.IBCFeeKeeper, uint64(10000))
+	// transferICS4Wrapper := transferStack.(porttypes.ICS4Wrapper)
 	transferStack = ibcfee.NewIBCMiddleware(transferStack, app.IBCFeeKeeper)
 	// Since the callbacks middleware itself is an ics4wrapper, it needs to be passed to the ica controller keeper
-	app.TransferKeeper.WithICS4Wrapper(transferICS4Wrapper)
+	// app.TransferKeeper.WithICS4Wrapper(transferICS4Wrapper)
 
 	// Create static IBC router, add app routes, then set and seal it
 	ibcRouter := porttypes.NewRouter().
@@ -773,6 +775,7 @@ func NewWasmApp(
 		stakingtypes.ModuleName,
 		genutiltypes.ModuleName,
 		authz.ModuleName,
+		banktypes.ModuleName,
 		// additional non simd modules
 		capabilitytypes.ModuleName,
 		ibctransfertypes.ModuleName,
@@ -784,6 +787,7 @@ func NewWasmApp(
 
 	app.ModuleManager.SetOrderEndBlockers(
 		crisistypes.ModuleName,
+		banktypes.ModuleName,
 		govtypes.ModuleName,
 		stakingtypes.ModuleName,
 		genutiltypes.ModuleName,

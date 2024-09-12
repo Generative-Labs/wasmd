@@ -7,8 +7,9 @@ import (
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/testdata"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/app/params"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 const (
@@ -23,25 +24,13 @@ const (
 	WeightUnpinCodesProposal                  = "weight_unpin_codes_proposal"
 	WeightUpdateInstantiateConfigProposal     = "weight_update_instantiate_config_proposal"
 	WeightStoreAndInstantiateContractProposal = "weight_store_and_instantiate_contract_proposal"
-
-	DefaultWeightStoreCodeProposal                   int = 5
-	DefaultWeightInstantiateContractProposal         int = 5
-	DefaultWeightUpdateAdminProposal                 int = 5
-	DefaultWeightExecuteContractProposal             int = 5
-	DefaultWeightClearAdminProposal                  int = 5
-	DefaultWeightMigrateContractProposal             int = 5
-	DefaultWeightSudoContractProposal                int = 5
-	DefaultWeightPinCodesProposal                    int = 5
-	DefaultWeightUnpinCodesProposal                  int = 5
-	DefaultWeightUpdateInstantiateConfigProposal     int = 5
-	DefaultWeightStoreAndInstantiateContractProposal int = 5
 )
 
 func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedProposalMsg {
 	return []simtypes.WeightedProposalMsg{
 		simulation.NewWeightedProposalMsg(
 			WeightInstantiateContractProposal,
-			DefaultWeightInstantiateContractProposal,
+			params.DefaultWeightInstantiateContractProposal,
 			SimulateInstantiateContractProposal(
 				bk,
 				wasmKeeper,
@@ -50,7 +39,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightUpdateAdminProposal,
-			DefaultWeightUpdateAdminProposal,
+			params.DefaultWeightUpdateAdminProposal,
 			SimulateUpdateAdminProposal(
 				wasmKeeper,
 				DefaultSimulateUpdateAdminProposalContractSelector,
@@ -58,7 +47,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightExeContractProposal,
-			DefaultWeightExecuteContractProposal,
+			params.DefaultWeightExecuteContractProposal,
 			SimulateExecuteContractProposal(
 				bk,
 				wasmKeeper,
@@ -69,7 +58,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightClearAdminProposal,
-			DefaultWeightClearAdminProposal,
+			params.DefaultWeightClearAdminProposal,
 			SimulateClearAdminProposal(
 				wasmKeeper,
 				DefaultSimulateContractSelector,
@@ -77,7 +66,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightMigrateContractProposal,
-			DefaultWeightMigrateContractProposal,
+			params.DefaultWeightMigrateContractProposal,
 			SimulateMigrateContractProposal(
 				wasmKeeper,
 				DefaultSimulateContractSelector,
@@ -86,7 +75,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightPinCodesProposal,
-			DefaultWeightPinCodesProposal,
+			params.DefaultWeightPinCodesProposal,
 			SimulatePinContractProposal(
 				wasmKeeper,
 				DefaultSimulationCodeIDSelector,
@@ -94,7 +83,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightUnpinCodesProposal,
-			DefaultWeightUnpinCodesProposal,
+			params.DefaultWeightUnpinCodesProposal,
 			SimulateUnpinContractProposal(
 				wasmKeeper,
 				DefaultSimulationCodeIDSelector,
@@ -102,7 +91,7 @@ func ProposalMsgs(bk BankKeeper, wasmKeeper WasmKeeper) []simtypes.WeightedPropo
 		),
 		simulation.NewWeightedProposalMsg(
 			WeightUpdateInstantiateConfigProposal,
-			DefaultWeightUpdateInstantiateConfigProposal,
+			params.DefaultWeightUpdateInstantiateConfigProposal,
 			SimulateUpdateInstantiateConfigProposal(
 				wasmKeeper,
 				DefaultSimulationCodeIDSelector,

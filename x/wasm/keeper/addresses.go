@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/address"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 // AddressGenerator abstract address generator to be used for a single contract address
@@ -22,8 +22,8 @@ func (k Keeper) ClassicAddressGenerator() AddressGenerator {
 	}
 }
 
-// PredictableAddressGenerator generates a predictable contract address
-func PredictableAddressGenerator(creator sdk.AccAddress, salt, msg []byte, fixMsg bool) AddressGenerator {
+// PredicableAddressGenerator generates a predictable contract address
+func PredicableAddressGenerator(creator sdk.AccAddress, salt, msg []byte, fixMsg bool) AddressGenerator {
 	return func(_ context.Context, _ uint64, checksum []byte) sdk.AccAddress {
 		if !fixMsg { // clear msg to not be included in the address generation
 			msg = []byte{}

@@ -9,7 +9,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestHasWasmModuleEvent(t *testing.T) {
@@ -245,18 +245,6 @@ func TestNewWasmModuleEvent(t *testing.T) {
 			exp: sdk.Events{sdk.NewEvent("wasm",
 				sdk.NewAttribute("_contract_address", myContract.String()),
 				sdk.NewAttribute("my-real-key", "some-val"))},
-		},
-		"empty value": {
-			src: []wasmvmtypes.EventAttribute{{Key: "myKey", Value: ""}},
-			exp: sdk.Events{sdk.NewEvent("wasm",
-				sdk.NewAttribute("_contract_address", myContract.String()),
-				sdk.NewAttribute("myKey", ""))},
-		},
-		"whitespace-only value": {
-			src: []wasmvmtypes.EventAttribute{{Key: "myKey", Value: "     "}},
-			exp: sdk.Events{sdk.NewEvent("wasm",
-				sdk.NewAttribute("_contract_address", myContract.String()),
-				sdk.NewAttribute("myKey", ""))},
 		},
 		"empty elements": {
 			src:     make([]wasmvmtypes.EventAttribute, 10),

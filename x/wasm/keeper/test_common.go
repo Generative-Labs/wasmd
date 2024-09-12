@@ -45,7 +45,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/address"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
 	"github.com/cosmos/cosmos-sdk/x/auth"
 	authcodec "github.com/cosmos/cosmos-sdk/x/auth/codec"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
@@ -77,9 +76,10 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/testdata"
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	wasmappparams "github.com/generativelabs/wasmd/app/params"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 var moduleBasics = module.NewBasicManager(
@@ -106,24 +106,15 @@ func MakeTestCodec(t testing.TB) codec.Codec {
 	return MakeEncodingConfig(t).Codec
 }
 
-func MakeEncodingConfig(_ testing.TB) moduletestutil.TestEncodingConfig {
-	encodingConfig := moduletestutil.MakeTestEncodingConfig(
-		auth.AppModule{},
-		bank.AppModule{},
-		staking.AppModule{},
-		mint.AppModule{},
-		slashing.AppModule{},
-		gov.AppModule{},
-		crisis.AppModule{},
-		ibc.AppModule{},
-		transfer.AppModule{},
-		vesting.AppModule{},
-	)
+func MakeEncodingConfig(_ testing.TB) wasmappparams.EncodingConfig {
+	encodingConfig := wasmappparams.MakeEncodingConfig()
 	amino := encodingConfig.Amino
 	interfaceRegistry := encodingConfig.InterfaceRegistry
 
 	std.RegisterInterfaces(interfaceRegistry)
+	std.RegisterLegacyAminoCodec(amino)
 
+	moduleBasics.RegisterLegacyAminoCodec(amino)
 	moduleBasics.RegisterInterfaces(interfaceRegistry)
 	// add wasmd types
 	types.RegisterInterfaces(interfaceRegistry)
@@ -197,7 +188,7 @@ type TestKeepers struct {
 	WasmKeeper       *Keeper
 	IBCKeeper        *ibckeeper.Keeper
 	Router           MessageRouter
-	EncodingConfig   moduletestutil.TestEncodingConfig
+	EncodingConfig   wasmappparams.EncodingConfig
 	Faucet           *TestFaucet
 	MultiStore       storetypes.CommitMultiStore
 	ScopedWasmKeeper capabilitykeeper.ScopedKeeper
@@ -316,6 +307,7 @@ func createTestInput(
 	bankKeeper := bankkeeper.NewBaseKeeper(
 		appCodec,
 		runtime.NewKVStoreService(keys[banktypes.StoreKey]),
+		storetypes.NewKVStoreKey(banktypes.StoreKey),
 		accountKeeper,
 		blockedAddrs,
 		authtypes.NewModuleAddress(banktypes.ModuleName).String(),
@@ -666,7 +658,7 @@ func InstantiateHackatomExampleContract(t testing.TB, ctx sdk.Context, keepers T
 	initialAmount := sdk.NewCoins(sdk.NewInt64Coin("denom", 100))
 
 	adminAddr := contract.CreatorAddr
-	label := "hackatom contract"
+	label := "demo contract to query"
 	contractAddr, _, err := keepers.ContractKeeper.Instantiate(ctx, contract.CodeID, contract.CreatorAddr, adminAddr, initMsgBz, label, initialAmount)
 	require.NoError(t, err)
 	return HackatomExampleInstance{
@@ -692,31 +684,10 @@ type ExampleInstance struct {
 func InstantiateReflectExampleContract(t testing.TB, ctx sdk.Context, keepers TestKeepers) ExampleInstance {
 	example := StoreReflectContract(t, ctx, keepers)
 	initialAmount := sdk.NewCoins(sdk.NewInt64Coin("denom", 100))
-	label := "reflect contract"
+	label := "demo contract to query"
 	contractAddr, _, err := keepers.ContractKeeper.Instantiate(ctx, example.CodeID, example.CreatorAddr, example.CreatorAddr, []byte("{}"), label, initialAmount)
 
 	require.NoError(t, err)
-	return ExampleInstance{
-		ExampleContract: example,
-		Contract:        contractAddr,
-		Label:           label,
-		Deposit:         initialAmount,
-	}
-}
-
-// InstantiateReflectExampleContractWithPortID load and instantiate the "./testdata/reflect_2_0.wasm" contract with defined port ID
-func InstantiateReflectExampleContractWithPortID(t testing.TB, ctx sdk.Context, keepers TestKeepers, portID string) ExampleInstance {
-	example := StoreReflectContract(t, ctx, keepers)
-	initialAmount := sdk.NewCoins(sdk.NewInt64Coin("denom", 100))
-	label := "reflect contract with port id"
-	contractAddr, _, err := keepers.ContractKeeper.Instantiate(ctx, example.CodeID, example.CreatorAddr, example.CreatorAddr, []byte("{}"), label, initialAmount)
-
-	require.NoError(t, err)
-
-	cInfo := keepers.WasmKeeper.GetContractInfo(ctx, contractAddr)
-	cInfo.IBCPortID = portID
-	keepers.WasmKeeper.mustStoreContractInfo(ctx, contractAddr, cInfo)
-
 	return ExampleInstance{
 		ExampleContract: example,
 		Contract:        contractAddr,

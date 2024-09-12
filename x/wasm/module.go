@@ -25,11 +25,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/CosmWasm/wasmd/x/wasm/client/cli"
-	"github.com/CosmWasm/wasmd/x/wasm/exported"
-	"github.com/CosmWasm/wasmd/x/wasm/keeper"
-	"github.com/CosmWasm/wasmd/x/wasm/simulation"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/client/cli"
+	"github.com/generativelabs/wasmd/x/wasm/exported"
+	"github.com/generativelabs/wasmd/x/wasm/keeper"
+	"github.com/generativelabs/wasmd/x/wasm/simulation"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 var (

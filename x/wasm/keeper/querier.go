@@ -21,11 +21,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
-
-// DefaultGasCostBuildAddress is the SDK gas cost to build a contract address
-const DefaultGasCostBuildAddress = 10
 
 var _ types.QueryServer = &GrpcQuerier{}
 
@@ -285,25 +282,6 @@ func (q GrpcQuerier) Codes(c context.Context, req *types.QueryCodesRequest) (*ty
 	return &types.QueryCodesResponse{CodeInfos: r, Pagination: pageRes}, nil
 }
 
-func (q GrpcQuerier) CodeInfo(c context.Context, req *types.QueryCodeInfoRequest) (*types.QueryCodeInfoResponse, error) {
-	if req == nil {
-		return nil, status.Error(codes.InvalidArgument, "empty request")
-	}
-	if req.CodeId == 0 {
-		return nil, errorsmod.Wrap(types.ErrInvalid, "code id")
-	}
-	info := queryCodeInfo(sdk.UnwrapSDKContext(c), req.CodeId, q.keeper)
-	if info == nil {
-		return nil, types.ErrNoSuchCodeFn(req.CodeId).Wrapf("code id %d", req.CodeId)
-	}
-	return &types.QueryCodeInfoResponse{
-		CodeID:                info.CodeID,
-		Creator:               info.Creator,
-		Checksum:              info.DataHash,
-		InstantiatePermission: info.InstantiatePermission,
-	}, nil
-}
-
 func queryContractInfo(ctx sdk.Context, addr sdk.AccAddress, keeper types.ViewKeeper) (*types.QueryContractInfoResponse, error) {
 	info := keeper.GetContractInfo(ctx, addr)
 	if info == nil {
@@ -317,27 +295,13 @@ func queryContractInfo(ctx sdk.Context, addr sdk.AccAddress, keeper types.ViewKe
 }
 
 func queryCode(ctx sdk.Context, codeID uint64, keeper types.ViewKeeper) (*types.QueryCodeResponse, error) {
-	info := queryCodeInfo(ctx, codeID, keeper)
-	if info == nil {
-		// nil, nil leads to 404 in rest handler
-		return nil, nil
-	}
-
-	code, err := keeper.GetByteCode(ctx, codeID)
-	if err != nil {
-		return nil, errorsmod.Wrap(err, "loading wasm code")
-	}
-
-	return &types.QueryCodeResponse{CodeInfoResponse: info, Data: code}, nil
-}
-
-func queryCodeInfo(ctx sdk.Context, codeID uint64, keeper types.ViewKeeper) *types.CodeInfoResponse {
 	if codeID == 0 {
-		return nil
+		return nil, nil
 	}
 	res := keeper.GetCodeInfo(ctx, codeID)
 	if res == nil {
-		return nil
+		// nil, nil leads to 404 in rest handler
+		return nil, nil
 	}
 	info := types.CodeInfoResponse{
 		CodeID:                codeID,
@@ -345,7 +309,13 @@ func queryCodeInfo(ctx sdk.Context, codeID uint64, keeper types.ViewKeeper) *typ
 		DataHash:              res.CodeHash,
 		InstantiatePermission: res.InstantiateConfig,
 	}
-	return &info
+
+	code, err := keeper.GetByteCode(ctx, codeID)
+	if err != nil {
+		return nil, errorsmod.Wrap(err, "loading wasm code")
+	}
+
+	return &types.QueryCodeResponse{CodeInfoResponse: &info, Data: code}, nil
 }
 
 func (q GrpcQuerier) PinnedCodes(c context.Context, req *types.QueryPinnedCodesRequest) (*types.QueryPinnedCodesResponse, error) {
@@ -458,10 +428,6 @@ func (q GrpcQuerier) BuildAddress(c context.Context, req *types.QueryBuildAddres
 	if len(salt) == 0 {
 		return nil, status.Error(codes.InvalidArgument, "empty salt")
 	}
-
-	ctx := sdk.UnwrapSDKContext(c)
-	defer ctx.GasMeter().ConsumeGas(DefaultGasCostBuildAddress, "build address")
-
 	if req.InitArgs == nil {
 		return &types.QueryBuildAddressResponse{
 			Address: BuildContractAddressPredictable(codeHash, creator, salt, []byte{}).String(),

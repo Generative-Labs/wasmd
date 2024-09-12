@@ -2,11 +2,11 @@
 
 [![CircleCI](https://circleci.com/gh/CosmWasm/wasmd/tree/main.svg?style=shield)](https://circleci.com/gh/CosmWasm/wasmd/tree/main)
 [![codecov](https://codecov.io/gh/cosmwasm/wasmd/branch/main/graph/badge.svg)](https://codecov.io/gh/cosmwasm/wasmd)
-[![Go Report Card](https://goreportcard.com/badge/github.com/CosmWasm/wasmd)](https://goreportcard.com/report/github.com/CosmWasm/wasmd)
-[![license](https://img.shields.io/github/license/CosmWasm/wasmd.svg)](https://github.com/CosmWasm/wasmd/blob/main/LICENSE)
-[![LoC](https://tokei.rs/b1/github/CosmWasm/wasmd)](https://github.com/CosmWasm/wasmd)
+[![Go Report Card](https://goreportcard.com/badge/github.com/generativelabs/wasmd)](https://goreportcard.com/report/github.com/generativelabs/wasmd)
+[![license](https://img.shields.io/github/license/CosmWasm/wasmd.svg)](https://github.com/generativelabs/wasmd/blob/main/LICENSE)
+[![LoC](https://tokei.rs/b1/github/CosmWasm/wasmd)](https://github.com/generativelabs/wasmd)
 
-<!-- [![GolangCI](https://golangci.com/badges/github.com/CosmWasm/wasmd.svg)](https://golangci.com/r/github.com/CosmWasm/wasmd) -->
+<!-- [![GolangCI](https://golangci.com/badges/github.com/generativelabs/wasmd.svg)](https://golangci.com/r/github.com/generativelabs/wasmd) -->
 
 This repository hosts `Wasmd`, the first implementation of a cosmos zone with wasm smart contracts enabled.
 
@@ -53,13 +53,13 @@ The following table shows
 
 | wasmd  | compatible | specified                                                         |
 | ------ | ---------- | ----------------------------------------------------------------- |
-| 0.51.0 | 2.0.x      | [2.0.0](https://github.com/CosmWasm/wasmd/blob/v0.51.0/go.mod#L6) |
-| 0.50.0 | 1.5.x      | [1.5.0](https://github.com/CosmWasm/wasmd/blob/v0.50.0/go.mod#L6) |
-| 0.45.0 | 1.5.x      | [1.5.0](https://github.com/CosmWasm/wasmd/blob/v0.45.0/go.mod#L6) |
-| 0.44.0 | 1.5.x      | [1.5.0](https://github.com/CosmWasm/wasmd/blob/v0.44.0/go.mod#L6) |
-| 0.43.0 | 1.4.x      | [1.4.1](https://github.com/CosmWasm/wasmd/blob/v0.43.0/go.mod#L6) |
-| 0.42.0 | 1.4.x      | [1.4.1](https://github.com/CosmWasm/wasmd/blob/v0.42.0/go.mod#L6) |
-| 0.41.0 | 1.3.x      | [1.3.0](https://github.com/CosmWasm/wasmd/blob/v0.41.0/go.mod#L6) |
+| 0.51.0 | 2.0.x      | [2.0.0](https://github.com/generativelabs/wasmd/blob/v0.51.0/go.mod#L6) |
+| 0.50.0 | 1.5.x      | [1.5.0](https://github.com/generativelabs/wasmd/blob/v0.50.0/go.mod#L6) |
+| 0.45.0 | 1.5.x      | [1.5.0](https://github.com/generativelabs/wasmd/blob/v0.45.0/go.mod#L6) |
+| 0.44.0 | 1.5.x      | [1.5.0](https://github.com/generativelabs/wasmd/blob/v0.44.0/go.mod#L6) |
+| 0.43.0 | 1.4.x      | [1.4.1](https://github.com/generativelabs/wasmd/blob/v0.43.0/go.mod#L6) |
+| 0.42.0 | 1.4.x      | [1.4.1](https://github.com/generativelabs/wasmd/blob/v0.42.0/go.mod#L6) |
+| 0.41.0 | 1.3.x      | [1.3.0](https://github.com/generativelabs/wasmd/blob/v0.41.0/go.mod#L6) |
 
 Dependency resolution in Go is not obvious. In case of doubt, please use
 `go list -m github.com/CosmWasm/wasmvm` to get the dynamically calculated version of the wasmvm dependency. Also check
@@ -121,7 +121,7 @@ make install
 make test
 ```
 
-if you are using a linux without X or headless linux, look at [this article](https://ahelpme.com/linux/dbusexception-could-not-get-owner-of-name-org-freedesktop-secrets-no-such-name) or [#31](https://github.com/CosmWasm/wasmd/issues/31#issuecomment-577058321).
+if you are using a linux without X or headless linux, look at [this article](https://ahelpme.com/linux/dbusexception-could-not-get-owner-of-name-org-freedesktop-secrets-no-such-name) or [#31](https://github.com/generativelabs/wasmd/issues/31#issuecomment-577058321).
 
 ## Protobuf
 
@@ -207,8 +207,8 @@ to the configuration.
 
 Available flags:
 
-- `-X github.com/CosmWasm/wasmd/app.NodeDir=.corald` - set the config/data directory for the node (default `~/.wasmd`)
-- `-X github.com/CosmWasm/wasmd/app.Bech32Prefix=coral` - set the bech32 prefix for all accounts (default `wasm`)
+- `-X github.com/generativelabs/wasmd/app.NodeDir=.corald` - set the config/data directory for the node (default `~/.wasmd`)
+- `-X github.com/generativelabs/wasmd/app.Bech32Prefix=coral` - set the bech32 prefix for all accounts (default `wasm`)
 
 Examples:
 

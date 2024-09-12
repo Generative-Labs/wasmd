@@ -7,7 +7,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 var _ types.MsgServer = msgServer{}
@@ -94,7 +94,7 @@ func (m msgServer) InstantiateContract2(ctx context.Context, msg *types.MsgInsta
 
 	policy := m.selectAuthorizationPolicy(ctx, msg.Sender)
 
-	addrGenerator := PredictableAddressGenerator(senderAddr, msg.Salt, msg.Msg, msg.FixMsg)
+	addrGenerator := PredicableAddressGenerator(senderAddr, msg.Salt, msg.Msg, msg.FixMsg)
 
 	contractAddr, data, err := m.keeper.instantiate(ctx, msg.CodeID, senderAddr, adminAddr, msg.Msg, msg.Label, msg.Funds, addrGenerator, policy)
 	if err != nil {

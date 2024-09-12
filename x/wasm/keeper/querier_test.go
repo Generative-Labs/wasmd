@@ -25,8 +25,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/query"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestQueryAllContractState(t *testing.T) {
@@ -775,58 +775,6 @@ func TestQueryParams(t *testing.T) {
 }
 
 func TestQueryCodeInfo(t *testing.T) {
-	wasmCode, err := os.ReadFile("./testdata/hackatom.wasm")
-	require.NoError(t, err)
-
-	ctx, keepers := CreateTestInput(t, false, AvailableCapabilities)
-	keeper := keepers.WasmKeeper
-
-	anyAddress, err := sdk.AccAddressFromBech32("cosmos100dejzacpanrldpjjwksjm62shqhyss44jf5xz")
-	require.NoError(t, err)
-	specs := map[string]struct {
-		codeID       uint64
-		accessConfig types.AccessConfig
-	}{
-		"everybody": {
-			codeID:       1,
-			accessConfig: types.AllowEverybody,
-		},
-		"nobody": {
-			codeID:       10,
-			accessConfig: types.AllowNobody,
-		},
-		"with_address": {
-			codeID:       20,
-			accessConfig: types.AccessTypeAnyOfAddresses.With(anyAddress),
-		},
-	}
-	for msg, spec := range specs {
-		t.Run(msg, func(t *testing.T) {
-			codeInfo := types.CodeInfoFixture(types.WithSHA256CodeHash(wasmCode))
-			codeInfo.InstantiateConfig = spec.accessConfig
-			require.NoError(t, keeper.importCode(ctx, spec.codeID,
-				codeInfo,
-				wasmCode),
-			)
-
-			q := Querier(keeper)
-			got, err := q.CodeInfo(ctx, &types.QueryCodeInfoRequest{
-				CodeId: spec.codeID,
-			})
-			require.NoError(t, err)
-			expectedResponse := &types.QueryCodeInfoResponse{
-				CodeID:                spec.codeID,
-				Creator:               codeInfo.Creator,
-				Checksum:              codeInfo.CodeHash,
-				InstantiatePermission: spec.accessConfig,
-			}
-			require.NotNil(t, got)
-			require.EqualValues(t, expectedResponse, got)
-		})
-	}
-}
-
-func TestQueryCode(t *testing.T) {
 	wasmCode, err := os.ReadFile("./testdata/hackatom.wasm")
 	require.NoError(t, err)
 

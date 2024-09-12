@@ -29,11 +29,11 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/CosmWasm/wasmd/app"
-	"github.com/CosmWasm/wasmd/x/wasm/keeper"
-	wasmKeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/testdata"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/app"
+	"github.com/generativelabs/wasmd/x/wasm/keeper"
+	wasmKeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestMaskReflectCustomQuery(t *testing.T) {

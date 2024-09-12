@@ -1,4 +1,4 @@
-module github.com/CosmWasm/wasmd/tests/system
+module github.com/generativelabs/wasmd/tests/system
 
 go 1.21
 

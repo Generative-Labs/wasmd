@@ -18,7 +18,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func GetQueryCmd() *cobra.Command {
@@ -252,17 +252,20 @@ func GetCmdQueryCodeInfo() *cobra.Command {
 			}
 
 			queryClient := types.NewQueryClient(clientCtx)
-			res, err := queryClient.CodeInfo(
+			res, err := queryClient.Code(
 				context.Background(),
-				&types.QueryCodeInfoRequest{
+				&types.QueryCodeRequest{
 					CodeId: codeID,
 				},
 			)
 			if err != nil {
 				return err
 			}
+			if res.CodeInfoResponse == nil {
+				return fmt.Errorf("contract not found")
+			}
 
-			return clientCtx.PrintProto(res)
+			return clientCtx.PrintProto(res.CodeInfoResponse)
 		},
 		SilenceUsage: true,
 	}

@@ -19,9 +19,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 
-	"github.com/CosmWasm/wasmd/tests/e2e"
-	"github.com/CosmWasm/wasmd/tests/ibctesting"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/tests/e2e"
+	"github.com/generativelabs/wasmd/tests/ibctesting"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestGrants(t *testing.T) {

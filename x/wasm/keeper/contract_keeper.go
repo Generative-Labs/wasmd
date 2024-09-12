@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 var _ types.ContractOpsKeeper = PermissionedKeeper{}
@@ -88,7 +88,7 @@ func (p PermissionedKeeper) Instantiate2(
 		initMsg,
 		label,
 		deposit,
-		PredictableAddressGenerator(creator, salt, initMsg, fixMsg),
+		PredicableAddressGenerator(creator, salt, initMsg, fixMsg),
 		p.authZPolicy,
 	)
 }

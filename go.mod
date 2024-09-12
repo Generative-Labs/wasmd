@@ -1,4 +1,4 @@
-module github.com/CosmWasm/wasmd
+module github.com/generativelabs/wasmd
 
 go 1.21
 
@@ -212,6 +212,14 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
+// release/v0.50.x
+replace (
+	// cosmossdk.io/client/v2 => github.com/crypto-org-chain/cosmos-sdk/client/v2 v2.0.0-20240722033504-50f1fa0c49d1
+	cosmossdk.io/store => github.com/crypto-org-chain/cosmos-sdk/store v0.0.0-20240722033504-50f1fa0c49d1
+	// cosmossdk.io/x/tx => github.com/crypto-org-chain/cosmos-sdk/x/tx v0.0.0-20240722033504-50f1fa0c49d1
+	github.com/cosmos/cosmos-sdk => github.com/crypto-org-chain/cosmos-sdk v0.50.6-0.20240722033504-50f1fa0c49d1
+)
+
 replace (
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
 	// dgrijalva/jwt-go is deprecated and doesn't receive security updates.
@@ -226,10 +234,10 @@ replace (
 )
 
 retract (
-	// see https://github.com/CosmWasm/wasmd/issues/1713
+	// see https://github.com/generativelabs/wasmd/issues/1713
 	v0.44.0
-	// see https://github.com/CosmWasm/wasmd/issues/1713
+	// see https://github.com/generativelabs/wasmd/issues/1713
 	v0.43.0
-	// see https://github.com/CosmWasm/wasmd/issues/1651
+	// see https://github.com/generativelabs/wasmd/issues/1651
 	v0.42.0
 )

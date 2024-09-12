@@ -20,9 +20,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/address"
 
-	"github.com/CosmWasm/wasmd/app"
-	wasmibctesting "github.com/CosmWasm/wasmd/tests/ibctesting"
-	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/app"
+	wasmibctesting "github.com/generativelabs/wasmd/tests/ibctesting"
+	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestIBCFeesTransfer(t *testing.T) {

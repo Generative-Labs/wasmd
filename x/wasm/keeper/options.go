@@ -8,7 +8,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 type optsFn func(*Keeper)
@@ -155,12 +155,6 @@ func WithAPICosts(human, canonical uint64) Option {
 func WithMaxQueryStackSize(m uint32) Option {
 	return optsFn(func(k *Keeper) {
 		k.maxQueryStackSize = m
-	})
-}
-
-func WithMaxCallDepth(m uint32) Option {
-	return optsFn(func(k *Keeper) {
-		k.maxCallDepth = m
 	})
 }
 

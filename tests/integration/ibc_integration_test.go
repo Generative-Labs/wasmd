@@ -16,11 +16,11 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/CosmWasm/wasmd/app"
-	wasmibctesting "github.com/CosmWasm/wasmd/tests/ibctesting"
-	wasmkeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
-	"github.com/CosmWasm/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/CosmWasm/wasmd/x/wasm/types"
+	"github.com/generativelabs/wasmd/app"
+	wasmibctesting "github.com/generativelabs/wasmd/tests/ibctesting"
+	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/generativelabs/wasmd/x/wasm/types"
 )
 
 func TestIBCReflectContract(t *testing.T) {
