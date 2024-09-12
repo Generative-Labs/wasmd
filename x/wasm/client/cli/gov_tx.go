@@ -22,8 +22,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/gov/client/cli"
 	v1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 
-	"github.com/generativelabs/wasmd/x/wasm/ioutils"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/ioutils"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 // DefaultGovAuthority is set to the gov module address.

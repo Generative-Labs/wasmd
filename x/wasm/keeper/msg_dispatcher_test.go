@@ -17,7 +17,7 @@ import (
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
 )
 
 func TestDispatchSubmessages(t *testing.T) {

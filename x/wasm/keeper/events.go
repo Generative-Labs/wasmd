@@ -10,7 +10,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 // newWasmModuleEvent creates with wasm module event for interacting with the given contract. Adds custom attributes

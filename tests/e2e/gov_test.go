@@ -15,9 +15,9 @@ import (
 	distributiontypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	v1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 
-	"github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/tests/e2e"
-	"github.com/generativelabs/wasmd/tests/ibctesting"
+	"github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/tests/e2e"
+	"github.com/Generative-Labs/wasmd/tests/ibctesting"
 )
 
 func TestGovVoteByContract(t *testing.T) {

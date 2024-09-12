@@ -16,7 +16,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 var (

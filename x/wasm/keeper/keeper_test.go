@@ -35,9 +35,9 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	distributiontypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 //go:embed testdata/hackatom.wasm
@@ -824,7 +824,7 @@ func TestInstantiateWithContractFactoryChildQueriesParent(t *testing.T) {
 	// 	     and the child contracts queries the senders ContractInfo on instantiation
 	//	then the factory contract's ContractInfo should be returned to the child contract
 	//
-	// see also: https://github.com/generativelabs/wasmd/issues/896
+	// see also: https://github.com/Generative-Labs/wasmd/issues/896
 	ctx, keepers := CreateTestInput(t, false, AvailableCapabilities)
 	keeper := keepers.WasmKeeper
 

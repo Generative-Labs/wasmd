@@ -18,8 +18,8 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestConstructorOptions(t *testing.T) {

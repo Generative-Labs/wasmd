@@ -24,12 +24,12 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 
-	"github.com/generativelabs/wasmd/x/wasm"
-	"github.com/generativelabs/wasmd/x/wasm/exported"
-	"github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	v2 "github.com/generativelabs/wasmd/x/wasm/migrations/v2"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm"
+	"github.com/Generative-Labs/wasmd/x/wasm/exported"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	v2 "github.com/Generative-Labs/wasmd/x/wasm/migrations/v2"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 type mockSubspace struct {

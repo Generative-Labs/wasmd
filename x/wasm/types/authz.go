@@ -15,7 +15,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	authztypes "github.com/cosmos/cosmos-sdk/x/authz"
 
-	"github.com/generativelabs/wasmd/x/wasm/ioutils"
+	"github.com/Generative-Labs/wasmd/x/wasm/ioutils"
 )
 
 const (

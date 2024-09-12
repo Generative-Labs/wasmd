@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	// "github.com/generativelabs/wasmd/app"
+	// "github.com/Generative-Labs/wasmd/app"
 	wasmvm "github.com/CosmWasm/wasmvm/v2"
 	wasmvmtypes "github.com/CosmWasm/wasmvm/v2/types"
 	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
@@ -21,9 +21,9 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestSnapshotter(t *testing.T) {

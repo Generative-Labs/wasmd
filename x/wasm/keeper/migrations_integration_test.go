@@ -3,7 +3,7 @@ package keeper_test
 import (
 	"testing"
 
-	// "github.com/generativelabs/wasmd/app"
+	// "github.com/Generative-Labs/wasmd/app"
 	"github.com/cometbft/cometbft/libs/rand"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -14,9 +14,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/address"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/generativelabs/wasmd/app"
-	v2 "github.com/generativelabs/wasmd/x/wasm/migrations/v2"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app"
+	v2 "github.com/Generative-Labs/wasmd/x/wasm/migrations/v2"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestModuleMigrations(t *testing.T) {
@@ -41,7 +41,7 @@ func TestModuleMigrations(t *testing.T) {
 				}
 
 				// upgrade code shipped with v0.40
-				// https://github.com/generativelabs/wasmd/blob/v0.40.0/app/upgrades.go#L66
+				// https://github.com/Generative-Labs/wasmd/blob/v0.40.0/app/upgrades.go#L66
 				sp, _ := wasmApp.ParamsKeeper.GetSubspace(types.ModuleName)
 				keyTable := v2.ParamKeyTable()
 				if !sp.HasKeyTable() {
@@ -64,7 +64,7 @@ func TestModuleMigrations(t *testing.T) {
 				}
 
 				// upgrade code shipped with v0.40
-				// https://github.com/generativelabs/wasmd/blob/v0.40.0/app/upgrades.go#L66
+				// https://github.com/Generative-Labs/wasmd/blob/v0.40.0/app/upgrades.go#L66
 				sp, _ := wasmApp.ParamsKeeper.GetSubspace(types.ModuleName)
 				keyTable := v2.ParamKeyTable()
 				if !sp.HasKeyTable() {

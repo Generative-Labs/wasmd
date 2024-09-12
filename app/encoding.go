@@ -9,8 +9,8 @@ import (
 
 	simtestutil "github.com/cosmos/cosmos-sdk/testutil/sims"
 
-	"github.com/generativelabs/wasmd/app/params"
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/app/params"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
 )
 
 // MakeEncodingConfig creates a new EncodingConfig with all modules registered. For testing only

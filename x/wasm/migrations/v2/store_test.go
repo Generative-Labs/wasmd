@@ -17,9 +17,9 @@ import (
 	paramskeeper "github.com/cosmos/cosmos-sdk/x/params/keeper"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/generativelabs/wasmd/x/wasm"
-	v2 "github.com/generativelabs/wasmd/x/wasm/migrations/v2"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm"
+	v2 "github.com/Generative-Labs/wasmd/x/wasm/migrations/v2"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestMigrate(t *testing.T) {

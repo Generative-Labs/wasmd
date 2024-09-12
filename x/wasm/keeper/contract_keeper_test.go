@@ -14,8 +14,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestInstantiate2(t *testing.T) {

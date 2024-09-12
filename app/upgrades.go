@@ -18,11 +18,11 @@ import (
 	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/generativelabs/wasmd/app/upgrades"
-	"github.com/generativelabs/wasmd/app/upgrades/noop"
-	v050 "github.com/generativelabs/wasmd/app/upgrades/v050"
-	v2 "github.com/generativelabs/wasmd/x/wasm/migrations/v2"
-	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app/upgrades"
+	"github.com/Generative-Labs/wasmd/app/upgrades/noop"
+	v050 "github.com/Generative-Labs/wasmd/app/upgrades/v050"
+	v2 "github.com/Generative-Labs/wasmd/x/wasm/migrations/v2"
+	wasmtypes "github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 // Upgrades list of chain upgrades

@@ -10,7 +10,7 @@ import (
 	ibctesting "github.com/cosmos/ibc-go/v8/testing"
 	"github.com/stretchr/testify/require"
 
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
 )
 
 var (

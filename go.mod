@@ -1,4 +1,4 @@
-module github.com/generativelabs/wasmd
+module github.com/Generative-Labs/wasmd
 
 go 1.21
 
@@ -234,10 +234,10 @@ replace (
 )
 
 retract (
-	// see https://github.com/generativelabs/wasmd/issues/1713
+	// see https://github.com/Generative-Labs/wasmd/issues/1713
 	v0.44.0
-	// see https://github.com/generativelabs/wasmd/issues/1713
+	// see https://github.com/Generative-Labs/wasmd/issues/1713
 	v0.43.0
-	// see https://github.com/generativelabs/wasmd/issues/1651
+	// see https://github.com/Generative-Labs/wasmd/issues/1651
 	v0.42.0
 )

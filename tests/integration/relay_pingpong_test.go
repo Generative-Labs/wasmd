@@ -16,11 +16,11 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	app2 "github.com/generativelabs/wasmd/app"
-	wasmibctesting "github.com/generativelabs/wasmd/tests/ibctesting"
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
+	app2 "github.com/Generative-Labs/wasmd/app"
+	wasmibctesting "github.com/Generative-Labs/wasmd/tests/ibctesting"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	wasmtypes "github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 const (

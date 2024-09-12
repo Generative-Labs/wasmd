@@ -14,7 +14,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/msgservice"
 
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
 )
 
 var emptyWasmOpts []wasmkeeper.Option

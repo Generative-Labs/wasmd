@@ -45,8 +45,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking/testutil"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/generativelabs/wasmd/app"
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/app"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
 )
 
 var MaxAccounts = 10

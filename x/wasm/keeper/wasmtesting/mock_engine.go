@@ -9,7 +9,7 @@ import (
 
 	errorsmod "cosmossdk.io/errors"
 
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 const (

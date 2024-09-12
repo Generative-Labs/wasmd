@@ -1,6 +1,6 @@
 # Protobufs
 
-This is the public protocol buffers API for [Wasmd](https://github.com/generativelabs/wasmd).
+This is the public protocol buffers API for [Wasmd](https://github.com/Generative-Labs/wasmd).
 
 ## Download
 

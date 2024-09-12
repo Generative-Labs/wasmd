@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/generativelabs/wasmd/app/upgrades"
+	"github.com/Generative-Labs/wasmd/app/upgrades"
 )
 
 // NewUpgrade constructor

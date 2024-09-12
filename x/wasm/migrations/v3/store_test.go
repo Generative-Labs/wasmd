@@ -11,11 +11,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/address"
 	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
 
-	"github.com/generativelabs/wasmd/x/wasm"
-	"github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	v3 "github.com/generativelabs/wasmd/x/wasm/migrations/v3"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	v3 "github.com/Generative-Labs/wasmd/x/wasm/migrations/v3"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestMigrate3To4(t *testing.T) {

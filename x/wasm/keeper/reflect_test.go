@@ -19,8 +19,8 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 var (

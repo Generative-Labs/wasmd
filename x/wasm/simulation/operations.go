@@ -18,10 +18,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/tx"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/generativelabs/wasmd/app/params"
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app/params"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 // Simulation operation weights constants

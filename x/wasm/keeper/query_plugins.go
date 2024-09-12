@@ -23,7 +23,7 @@ import (
 	distributiontypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 type QueryHandler struct {
@@ -575,7 +575,7 @@ func sdkToFullDelegation(ctx sdk.Context, keeper types.StakingKeeper, distKeeper
 	delegationCoins := ConvertSdkCoinToWasmCoin(amount)
 
 	// FIXME: this is very rough but better than nothing...
-	// https://github.com/generativelabs/wasmd/issues/282
+	// https://github.com/Generative-Labs/wasmd/issues/282
 	// if this (val, delegate) pair is receiving a redelegation, it cannot redelegate more
 	// otherwise, it can redelegate the full amount
 	// (there are cases of partial funds redelegated, but this is a start)

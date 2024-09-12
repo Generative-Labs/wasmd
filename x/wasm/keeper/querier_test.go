@@ -25,8 +25,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/query"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestQueryAllContractState(t *testing.T) {

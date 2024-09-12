@@ -32,7 +32,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestGenesisExportImport(t *testing.T) {

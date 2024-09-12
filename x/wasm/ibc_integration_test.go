@@ -14,12 +14,12 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	// "github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/app"
-	wasmibctesting "github.com/generativelabs/wasmd/x/wasm/ibctesting"
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	// "github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/app"
+	wasmibctesting "github.com/Generative-Labs/wasmd/x/wasm/ibctesting"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestOnChanOpenInitVersion(t *testing.T) {

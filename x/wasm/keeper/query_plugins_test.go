@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	// "github.com/generativelabs/wasmd/app"
+	// "github.com/Generative-Labs/wasmd/app"
 	wasmvmtypes "github.com/CosmWasm/wasmvm/v2/types"
 	cmtproto "github.com/cometbft/cometbft/proto/tendermint/types"
 	dbm "github.com/cosmos/cosmos-db"
@@ -33,10 +33,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/wasmtesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/wasmtesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestIBCQuerier(t *testing.T) {

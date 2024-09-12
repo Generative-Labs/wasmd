@@ -13,8 +13,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/ante"
 
-	wasmkeeper "github.com/generativelabs/wasmd/x/wasm/keeper"
-	wasmTypes "github.com/generativelabs/wasmd/x/wasm/types"
+	wasmkeeper "github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	wasmTypes "github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 // HandlerOptions extend the SDK's AnteHandler options by requiring the IBC

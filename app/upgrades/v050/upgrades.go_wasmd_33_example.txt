@@ -19,7 +19,7 @@ import (
 	crisistypes "github.com/cosmos/cosmos-sdk/x/crisis/types"
 	"github.com/cosmos/cosmos-sdk/x/group"
 
-	"github.com/generativelabs/wasmd/app/upgrades"
+	"github.com/Generative-Labs/wasmd/app/upgrades"
 )
 
 // UpgradeName defines the on-chain upgrade name

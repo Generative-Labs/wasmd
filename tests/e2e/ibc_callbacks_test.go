@@ -18,10 +18,10 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/tests/e2e"
-	wasmibctesting "github.com/generativelabs/wasmd/tests/ibctesting"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/tests/e2e"
+	wasmibctesting "github.com/Generative-Labs/wasmd/tests/ibctesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func TestIBCCallbacks(t *testing.T) {

@@ -6,7 +6,7 @@ import "cosmwasm/wasm/v1/types.proto";
 import "amino/amino.proto";
 import "cosmos_proto/cosmos.proto";
 
-option go_package = "github.com/generativelabs/wasmd/x/wasm/types";
+option go_package = "github.com/Generative-Labs/wasmd/x/wasm/types";
 
 // GenesisState - genesis state of x/wasm
 message GenesisState {

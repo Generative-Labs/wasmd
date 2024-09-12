@@ -13,9 +13,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/generativelabs/wasmd/tests/ibctesting"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/tests/ibctesting"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 // InstantiateStargateReflectContract stores and instantiates the reflect contract shipped with CosmWasm 1.5.3.

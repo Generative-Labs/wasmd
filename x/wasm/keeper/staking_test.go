@@ -20,8 +20,8 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	wasmtypes "github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 type StakingInitMsg struct {

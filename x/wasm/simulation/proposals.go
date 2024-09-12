@@ -7,9 +7,9 @@ import (
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/generativelabs/wasmd/app/params"
-	"github.com/generativelabs/wasmd/x/wasm/keeper/testdata"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app/params"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper/testdata"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 const (

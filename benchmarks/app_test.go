@@ -28,8 +28,8 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/generativelabs/wasmd/app"
-	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/app"
+	wasmtypes "github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func setup(db dbm.DB, withGenesis bool) (*app.WasmApp, app.GenesisState) {

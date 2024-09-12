@@ -14,7 +14,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	wasmtypes "github.com/generativelabs/wasmd/x/wasm/types"
+	wasmtypes "github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 func BenchmarkTxSending(b *testing.B) {

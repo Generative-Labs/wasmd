@@ -20,8 +20,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/cosmos/cosmos-sdk/x/authz"
 
-	"github.com/generativelabs/wasmd/x/wasm/ioutils"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	"github.com/Generative-Labs/wasmd/x/wasm/ioutils"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 const (

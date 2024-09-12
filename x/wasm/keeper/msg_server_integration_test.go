@@ -15,10 +15,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil/testdata"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	// "github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/app"
-	"github.com/generativelabs/wasmd/x/wasm/keeper"
-	"github.com/generativelabs/wasmd/x/wasm/types"
+	// "github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/app"
+	"github.com/Generative-Labs/wasmd/x/wasm/keeper"
+	"github.com/Generative-Labs/wasmd/x/wasm/types"
 )
 
 //go:embed testdata/reflect_1_5.wasm
